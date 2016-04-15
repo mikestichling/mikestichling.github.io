@@ -90,33 +90,7 @@
     compatibilitycheck: null,
     dataUrl: "Release/BombermanBuild35.data",
     codeUrl: "Release/BombermanBuild35.js",
-    memUrl: "Release/BombermanBuild35.mem",
-    canvas: document.getElementById('canvas'),
-    progress: null,
-    setStatus: function(text) {
-      if (this.progress == null)
-      {
-        if (typeof UnityProgress != 'function')
-          return;
-        this.progress = new UnityProgress (canvas);
-      }
-      if (!Module.setStatus.last) Module.setStatus.last = { time: Date.now(), text: '' };
-      if (text === Module.setStatus.text) return;
-      this.progress.SetMessage (text);
-      var m = text.match(/([^(]+)\((\d+(\.\d+)?)\/(\d+)\)/);
-      if (m)
-        this.progress.SetProgress (parseInt(m[2])/parseInt(m[4]));
-      if (text === "")
-        this.progress.Clear()
-
-      alert('here');
-      alert(this.progress);
-    },
-    totalDependencies: 0,
-    monitorRunDependencies: function(left) {
-      this.totalDependencies = Math.max(this.totalDependencies, left);
-      Module.setStatus(left ? 'Preparing... (' + (this.totalDependencies-left) + '/' + this.totalDependencies + ')' : 'All downloads complete.');
-    }
+    memUrl: "Release/BombermanBuild35.mem"
   };
 
   var QueryString = function () {
