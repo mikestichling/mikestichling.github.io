@@ -6,7 +6,7 @@
     <title>Unity WebGL Player | Bomberman</title>
     <link rel="stylesheet" href="TemplateData/style.css">
     <link rel="shortcut icon" href="TemplateData/favicon.ico" />
-    <script src="TemplateData/UnityProgress.js"></script>
+    <script src="progress.js"></script>
     <style>
     .fullscreen{
       margin-top:-30px;
@@ -64,16 +64,17 @@
     <p class="header"><span>Unity WebGL Player | </span>Bomberman</p>
     <div class="template-wrap clear">
       <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" height="720px" width="1280px"></canvas>
+
       <br>
 
       <div class="fullscreen"><img src="TemplateData/fullscreen.png" width="38" height="38" alt="Fullscreen" title="Fullscreen" onclick="SetFullscreen(1);" /></div>
       <div class="fullscreen mac"><a href="http://challenge.entelect.co.za/Unity/Mac.zip"><img src="TemplateData/apple.png" width="38" height="38" alt="Download Mac executable" title="Download Mac executable"/></a></div>
       <div class="fullscreen windows"><a href="http://challenge.entelect.co.za/Unity/Windows.zip"><img src="TemplateData/windows.png" width="38" height="38" alt="Download Windows executable" title="Download Windows executable" /></a></div>
-      <div id="loadingBox">
-        <div id="bgBar"></div>
-        <div id="progressBar"></div>
-        <p id="loadingInfo">Loading...</p>
-      </div>
+    </div>
+    <div id="loadingBox">
+      <div id="bgBar" style="position: absolute; width: 200px; height: 2px; display: block; background-color: #333; left:50%; margin-left: -100px"></div>
+      <div id="progressBar"></div>
+      <p id="loadingInfo">Loading...</p>
     </div>
 
     <script type='text/javascript'>
@@ -101,6 +102,9 @@
         this.progress.SetProgress (parseInt(m[2])/parseInt(m[4]));
       if (text === "")
         this.progress.Clear()
+
+      alert('here');
+      alert(this.progress);
     },
     totalDependencies: 0,
     monitorRunDependencies: function(left) {
