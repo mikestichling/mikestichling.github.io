@@ -48,13 +48,28 @@
     <body id="main"></body>
 
     <script>
-        const words = ["heart", "car", "chair", "umbrella", "sun", "moon", "carrot", "dog", "cat", "pizza-slice", "apple-whole", "leaf", "fish-fins", "glasses", "hat-cowboy", "star", "eye", "dove", "clock", "lightbulb"];
-
-        const getWord = (value) => {
-            if (value.indexOf("-") > 0) return value.substring(0, value.indexOf("-"));
-
-            return value;
-        };
+        const words = [ 
+                { word: "heart", type: "regular", icon:"heart"}, 
+                { word: "car", type: "solid", icon:"car"}, 
+                { word: "chair", type: "solid", icon:"chair"}, 
+                { word: "umbrella", type: "solid", icon:"umbrella"}, 
+                { word: "sun", type: "regular", icon:"sun"}, 
+                { word: "moon", type: "regular", icon:"moon"}, 
+                { word: "carrot", type: "solid", icon:"carrot"}, 
+                { word: "dog", type: "solid", icon:"dog"}, 
+                { word: "cat", type: "solid", icon:"cat"}, 
+                { word: "pizza", type: "solid", icon:"pizza-slice"}, 
+                { word: "apple", type: "solid", icon:"apple-whole"}, 
+                { word: "leaf", type: "solid", icon:"leaf"}, 
+                { word: "fish", type: "solid", icon:"fish-fins"}, 
+                { word: "glasses", type: "solid", icon:"glasses"}, 
+                { word: "hat", type: "solid", icon:"hat-cowboy"}, 
+                { word: "star", type: "regular", icon:"star"}, 
+                { word: "eye", type: "regular", icon:"eye"}, 
+                { word: "bird", type: "solid", icon:"dove"}, 
+                { word: "clock", type: "regular", icon:"clock"}, 
+                { word: "light", type: "regular", icon:"lightbulb"}, 
+              ];
 
         document.getElementById("main").innerHTML = words.reduce(
             (a, value) =>
@@ -62,13 +77,13 @@
                 `<page> 
                   <div class="container">
                     <div>
-                      <i class="fa-regular fa-${value}"></i>
+                      <i class="fa-${value.type} fa-${value.icon}"></i>
                     </div>
                   </div>
                 </page>
                 <page>
                   <div class="container">
-                    <div>${getWord(value)}</div>
+                    <div>${value.word}</div>
                   </div>
                 </page>`,
             ""
