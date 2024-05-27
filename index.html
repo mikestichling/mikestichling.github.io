@@ -5,22 +5,32 @@
         <title>word-association</title>
         <script src="https://kit.fontawesome.com/e3622f358f.js" crossorigin="anonymous"></script>
         <style>
+            body {
+                background: rgb(204, 204, 204);
+                font-size: 10em;
+            }
+
+            page {
+                background: white;
+                display: block;
+                width: 21cm;
+                height: 13.4cm;
+                page-break-after: always;
+                display: flex;
+                align-items: center;
+            }
+
+            page > * {
+              width: 100%;
+                text-align: center;
+            }
+
             @media screen {
                 page {
                     margin: 0 auto;
                     margin-bottom: 0.5cm;
                     box-shadow: 0 0 0.9cm rgba(0, 0, 0, 0.5);
                 }
-            }
-            body {
-                background: rgb(204, 204, 204);
-                font-size: 10em;
-            }
-            page {
-                background: white;
-                display: block;
-                width: 21cm;
-                height: 13.4cm;
             }
 
             @media print {
@@ -30,18 +40,6 @@
                     margin: 0;
                     box-shadow: 0;
                 }
-            }
-
-            .container {
-                width: auto;
-                height: 100%;
-                background-color: white;
-                display: flex;
-                align-items: center;
-            }
-            .container > div {
-                width: 100%;
-                text-align: center;
             }
         </style>
     </head>
@@ -75,16 +73,10 @@
             (a, value) =>
                 a +
                 `<page> 
-                  <div class="container">
-                    <div>
-                      <i class="fa-${value.type} fa-${value.icon}"></i>
-                    </div>
-                  </div>
+                  <i class="fa-${value.type} fa-${value.icon}"></i>  
                 </page>
                 <page>
-                  <div class="container">
-                    <div>${value.word}</div>
-                  </div>
+                  <div>${value.word}</div>
                 </page>`,
             ""
         );
