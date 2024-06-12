@@ -14,15 +14,26 @@
                 background: white;
                 display: block;
                 width: 21cm;
-                height: 13.4cm;
+                height: 14.8cm;
                 page-break-after: always;
                 display: flex;
-                align-items: center;
+	            flex-direction: row;
+	            align-items: center;
             }
 
-            page > * {
+            .items {
               width: 100%;
-                text-align: center;
+              text-align: center;
+              align-items: center;
+            }
+
+            .border {
+                border: 0.5mm dashed lightgrey;
+                margin: 10mm;
+                align-self: stretch;
+                width: 100%;
+                display: flex;
+                align-items: center;
             }
 
             @media screen {
@@ -72,11 +83,15 @@
         document.getElementById("main").innerHTML = words.reduce(
             (a, value) =>
                 a +
-                `<page> 
-                  <i class="fa-${value.type} fa-${value.icon}"></i>  
+                `<page>
+                    <div class="border">
+                        <i class="items fa-${value.type} fa-${value.icon}"></i>
+                    </div>
                 </page>
                 <page>
-                  <div>${value.word}</div>
+                    <div class="border">
+                        <div class="items">${value.word}</div>
+                    </div>
                 </page>`,
             ""
         );
