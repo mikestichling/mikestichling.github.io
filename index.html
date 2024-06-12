@@ -4,6 +4,7 @@
         <meta charset="utf-8" />
         <title>word-association</title>
         <script src="https://kit.fontawesome.com/e3622f358f.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="twemoji-awesome.css">
         <style>
             body {
                 background: rgb(204, 204, 204);
@@ -58,26 +59,36 @@
 
     <script>
         const words = [ 
-                { word: "heart", type: "regular", icon:"heart"}, 
-                { word: "car", type: "solid", icon:"car"}, 
+                { word: "heart", type: "regular", icon:"red-heart"}, 
+                { word: "car", type: "solid", icon:"automobile"}, 
                 { word: "chair", type: "solid", icon:"chair"}, 
                 { word: "umbrella", type: "solid", icon:"umbrella"}, 
                 { word: "sun", type: "regular", icon:"sun"}, 
-                { word: "moon", type: "regular", icon:"moon"}, 
+                { word: "moon", type: "regular", icon:"full-moon"}, 
                 { word: "carrot", type: "solid", icon:"carrot"}, 
                 { word: "dog", type: "solid", icon:"dog"}, 
                 { word: "cat", type: "solid", icon:"cat"}, 
-                { word: "pizza", type: "solid", icon:"pizza-slice"}, 
-                { word: "apple", type: "solid", icon:"apple-whole"}, 
-                { word: "leaf", type: "solid", icon:"leaf"}, 
-                { word: "fish", type: "solid", icon:"fish-fins"}, 
+                { word: "pizza", type: "solid", icon:"pizza"}, 
+                { word: "apple", type: "solid", icon:"red-apple"}, 
+                { word: "leaf", type: "solid", icon:"leaf-fluttering-in-wind"}, 
+                { word: "fish", type: "solid", icon:"fish"}, 
                 { word: "glasses", type: "solid", icon:"glasses"}, 
-                { word: "hat", type: "solid", icon:"hat-cowboy"}, 
+                { word: "hat", type: "solid", icon:"top-hat"}, 
                 { word: "star", type: "regular", icon:"star"}, 
                 { word: "eye", type: "regular", icon:"eye"}, 
-                { word: "bird", type: "solid", icon:"dove"}, 
-                { word: "clock", type: "regular", icon:"clock"}, 
-                { word: "light", type: "regular", icon:"lightbulb"}, 
+                { word: "duck", type: "solid", icon:"duck"}, 
+                { word: "clock", type: "regular", icon:"alarm-clock"}, 
+                { word: "light", type: "regular", icon:"light-bulb"}, 
+                { word: "book", type: "regular", icon:"open-book"},
+                { word: "pig", type: "regular", icon:"pig-face"},
+                { word: "flower", type: "regular", icon:"sunflower"}, 
+                { word: "pineapple", type: "regular", icon:"pineapple"}, 
+                { word: "coat", type: "regular", icon:"coat"}, 
+                { word: "key", type: "regular", icon:"key"}, 
+                { word: "drum", type: "regular", icon:"drum"},
+                { word: "guitar", type: "regular", icon:"guitar"},
+                { word: "house", type: "regular", icon:"house"},
+                { word: "fire", type: "regular", icon:"fire"},
               ];
 
         document.getElementById("main").innerHTML = words.reduce(
@@ -85,7 +96,7 @@
                 a +
                 `<page>
                     <div class="border">
-                        <div class="items">&#128540;</div>
+                        <i class="items twa twa-${value.icon}"></i>
                     </div>
                 </page>
                 <page>
